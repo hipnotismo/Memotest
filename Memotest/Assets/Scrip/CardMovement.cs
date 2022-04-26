@@ -5,10 +5,12 @@ using UnityEngine;
 public class CardMovement : MonoBehaviour
 {
     [SerializeField] private float reveal;
+    [SerializeField] private float number;
+    private GameObject manager;
 
     void Start()
     {
-        
+        manager = GameObject.Find("Manager");
     }
 
     // Update is called once per frame
@@ -21,5 +23,17 @@ public class CardMovement : MonoBehaviour
     {
         Debug.Log("Fuck");
         transform.Rotate(new Vector3(0, 0, reveal) /** Time.deltaTime*/);
+        manager.SendMessage("GetMessage", number);
+    }
+
+    void rotate()
+    {
+        transform.Rotate(new Vector3(0, 0, reveal) /** Time.deltaTime*/);
+
+    }
+
+    void deactivate()
+    {
+
     }
 }
