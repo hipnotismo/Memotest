@@ -7,6 +7,7 @@ public class CardMovement : MonoBehaviour
     [SerializeField] private float reveal;
     [SerializeField] private float number;
     private GameObject manager;
+ //   [SerializeField] private Manager manager;
 
     void Start()
     {
@@ -23,7 +24,9 @@ public class CardMovement : MonoBehaviour
     {
         Debug.Log("Fuck");
         transform.Rotate(new Vector3(0, 0, reveal) /** Time.deltaTime*/);
-        manager.SendMessage("GetMessage", number);
+           manager.SendMessage("add", number);
+        //manager.add(number);
+     
     }
 
     void rotate()
