@@ -23,15 +23,21 @@ public class CardMovement : MonoBehaviour
     private void OnMouseUp()
     {
         Debug.Log("Fuck");
-        transform.Rotate(new Vector3(0, 0, reveal) /** Time.deltaTime*/);
-           manager.SendMessage("add", number);
+        rotate();
+        manager.SendMessage("add", number);
         //manager.add(number);
      
     }
 
     void rotate()
     {
-        transform.Rotate(new Vector3(0, 0, reveal) /** Time.deltaTime*/);
+        transform.Rotate(new Vector3(0, 0, reveal));
+
+    }
+
+    void reverse()
+    {
+        transform.Rotate(new Vector3(0, 0, -reveal));
 
     }
 
