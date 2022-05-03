@@ -5,7 +5,7 @@ using UnityEngine;
 public class CardMovement : MonoBehaviour
 {
     [SerializeField] private float reveal;
-    [SerializeField] private float number;
+    public float number;
     private GameObject manager;
  //   [SerializeField] private Manager manager;
 
@@ -13,6 +13,7 @@ public class CardMovement : MonoBehaviour
     {
         manager = GameObject.Find("Manager");
     }
+
 
     // Update is called once per frame
     void Update()
@@ -24,9 +25,10 @@ public class CardMovement : MonoBehaviour
     {
         Debug.Log("Fuck");
         rotate();
-        manager.SendMessage("add", number);
+        manager.SendMessage("add", gameObject);
+       // manager.SendMessage("add", number);
         //manager.add(number);
-     
+
     }
 
     void rotate()
