@@ -4,47 +4,21 @@ using UnityEngine;
 
 public class CardMovement : MonoBehaviour
 {
-    [SerializeField] private float reveal;
-    public float number;
-    private GameObject manager;
- //   [SerializeField] private Manager manager;
-
-    void Start()
-    {
-        manager = GameObject.Find("Manager");
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnMouseUp()
     {
-        Debug.Log("Fuck");
-        rotate();
-        manager.SendMessage("add", gameObject);
-       // manager.SendMessage("add", number);
-        //manager.add(number);
-
+        FlipCard();
+        SendInfoToManager();
     }
 
-    void rotate()
+    private void SendInfoToManager()
     {
-        transform.Rotate(new Vector3(0, 0, reveal));
-
+        //Debug.Log("SendInfo");
+        GameManager.RetrieveInfo(gameObject);
     }
 
-    void reverse()
+    private void FlipCard()
     {
-        transform.Rotate(new Vector3(0, 0, -reveal));
-
-    }
-
-    void deactivate()
-    {
-
+        if (GameManager.flipEnabler)
+            transform.Rotate(0, 0, 180);
     }
 }
